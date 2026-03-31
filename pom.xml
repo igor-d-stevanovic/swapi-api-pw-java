@@ -18,7 +18,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <playwright.version>1.44.0</playwright.version>
+        <playwright.version>1.49.0</playwright.version>
         <junit.version>5.10.2</junit.version>
         <jackson.version>2.17.0</jackson.version>
         <allure.version>2.27.0</allure.version>
