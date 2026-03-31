@@ -216,8 +216,6 @@ public class TestParametrized extends BaseTest {
 
     @Feature("Cross-Resource")
     @Story("Resource Chaining")
-    @Feature("Cross-Resource")
-    @Story("Resource Chaining")
     @Test
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Species people are valid persons")

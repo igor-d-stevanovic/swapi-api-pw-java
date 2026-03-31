@@ -110,10 +110,10 @@ public class BaseApiClient {
 
             last = new TimedResponse(response, elapsedMs);
 
-            log.info("GET {} -> {} ({:.0f} ms){}",
+            log.info("GET {} -> {} ({} ms){}",
                     endpoint,
                     response.status(),
-                    elapsedMs,
+                    String.format("%.0f", elapsedMs),
                     attempt > 0 ? " [attempt " + (attempt + 1) + "/" + (retries + 1) + "]" : "");
 
             if (!retryStatuses.contains(response.status())) {
