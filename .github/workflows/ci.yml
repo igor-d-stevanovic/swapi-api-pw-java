@@ -51,3 +51,25 @@ jobs:
           name: allure-report
           path: target/site/allure-maven-plugin
           retention-days: 30
+
+      - name: Upload Pages artifact
+        if: always() && github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: target/site/allure-maven-plugin
+
+  deploy:
+    needs: test
+    if: github.event_name == 'push' && (needs.test.result == 'success' || needs.test.result == 'failure')
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
